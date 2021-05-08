@@ -5,8 +5,8 @@
 //  Created by Teacher on 04.05.2021.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class AlertHider: ObservableObject {
     var showAlert: Bool = false
@@ -44,7 +44,7 @@ class AlertHider: ObservableObject {
             objectWillChange.send()
             return
         }
-        
+
         objectWillChange.send()
     }
 }
