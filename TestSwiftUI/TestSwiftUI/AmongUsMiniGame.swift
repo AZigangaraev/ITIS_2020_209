@@ -24,7 +24,7 @@ struct AmongUsMiniGame: View {
     @State var points = 0
 
     var body: some View {
-        VStack(spacing: 35) {
+        VStack(spacing: 20) {
             ZStack(alignment: .leading) {
                 Rectangle().fill(Color.yellow).frame(width: mainWidth, height: 50)
                 Rectangle().fill(Color.blue).frame(width: mainWidth * firstViewValue, height: 50)
