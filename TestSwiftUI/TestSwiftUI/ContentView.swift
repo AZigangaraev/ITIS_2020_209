@@ -10,11 +10,11 @@ import SwiftUI
 // Текст; Логин; Кнопка
 
 struct ContentView: View {
-    @State private var username: String
+    @State private var username: String = ""
     @State private var password: String = ""
     @ObservedObject var alertHider: AlertHider = AlertHider()
 
-    init(username: String = "") {
+    init(username: String = ""){
         self.username = username
     }
 
