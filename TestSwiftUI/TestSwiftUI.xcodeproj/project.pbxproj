@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E25AC3D264595C5000A4CF2 /* VerticalBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25AC3C264595C5000A4CF2 /* VerticalBar.swift */; };
+		9E25AC4526459669000A4CF2 /* VerticalSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25AC4426459669000A4CF2 /* VerticalSlider.swift */; };
 		AE1BD1FB2641A60C00F9E74C /* AlertHider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1BD1FA2641A60C00F9E74C /* AlertHider.swift */; };
 		AE1BD1FF2641AB2E00F9E74C /* AmongUsMiniGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1BD1FE2641AB2E00F9E74C /* AmongUsMiniGame.swift */; };
 		AE3FC8D52641989800693955 /* TestSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3FC8D42641989800693955 /* TestSwiftUIApp.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E25AC3C264595C5000A4CF2 /* VerticalBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalBar.swift; sourceTree = "<group>"; };
+		9E25AC4426459669000A4CF2 /* VerticalSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalSlider.swift; sourceTree = "<group>"; };
 		AE1BD1FA2641A60C00F9E74C /* AlertHider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHider.swift; sourceTree = "<group>"; };
 		AE1BD1FE2641AB2E00F9E74C /* AmongUsMiniGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmongUsMiniGame.swift; sourceTree = "<group>"; };
 		AE3FC8D12641989800693955 /* TestSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +110,8 @@
 				AE3FC8DD2641989900693955 /* Info.plist */,
 				AE3FC8DA2641989900693955 /* Preview Content */,
 				AE1BD1FE2641AB2E00F9E74C /* AmongUsMiniGame.swift */,
+				9E25AC3C264595C5000A4CF2 /* VerticalBar.swift */,
+				9E25AC4426459669000A4CF2 /* VerticalSlider.swift */,
 			);
 			path = TestSwiftUI;
 			sourceTree = "<group>";
@@ -265,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E25AC3D264595C5000A4CF2 /* VerticalBar.swift in Sources */,
 				AE1BD1FB2641A60C00F9E74C /* AlertHider.swift in Sources */,
+				9E25AC4526459669000A4CF2 /* VerticalSlider.swift in Sources */,
 				AE1BD1FF2641AB2E00F9E74C /* AmongUsMiniGame.swift in Sources */,
 				AE3FC8D72641989800693955 /* ContentView.swift in Sources */,
 				AE3FC8D52641989800693955 /* TestSwiftUIApp.swift in Sources */,

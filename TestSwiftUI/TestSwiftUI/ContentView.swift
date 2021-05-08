@@ -10,13 +10,13 @@ import SwiftUI
 // Текст; Логин; Кнопка
 
 struct ContentView: View {
-    @State private var username: String
+    @State public var username: String
     @State private var password: String = ""
     @ObservedObject var alertHider: AlertHider = AlertHider()
 
-    init(username: String = "") {
-        self.username = username
-    }
+//    init(username: String = "") {
+//        self.username = username
+//    }
 
     var body: some View {
         VStack {
@@ -45,8 +45,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
-//            ContentView(username: "Amir")
+           // ContentView()
+           ContentView(username: "Amir")
         }
         .previewLayout(.fixed(width: 400, height: 400))
 //        .preferredColorScheme(.dark)
