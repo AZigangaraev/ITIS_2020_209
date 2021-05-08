@@ -7,61 +7,78 @@
 
 import SwiftUI
 
-// Текст; Логин; Кнопка
-
 struct ContentView: View {
-    @State private var username: String
-    @State private var password: String = ""
-    @ObservedObject var alertHider: AlertHider = AlertHider()
+    static let sliderCount = 6
 
-    init(username: String = "") {
-        self.username = username
-    }
+    @State var sliderValues = (0..<sliderCount).map { _ in CGFloat(0.5) }
+    var targets = (0..<sliderCount).map { _ in CGFloat.random(in: 0...1) }
+
+    @State var showingAlert = false
+    @State var score = 0.0
 
     var body: some View {
         VStack {
-            Text("Please enter your name")
-                .bold()
-                .font(.title)
+            Spacer()
 
-            LoginTextField(placeholder: "Your name", text: $username)
-            LoginTextField(placeholder: "Password", text: $password)
+            ForEach((0..<ContentView.sliderCount).reversed(), id: \.self) { idx in
+                TargetSlider(targetValue: targets[idx])
+                    .frame(height: 40)
+            }
 
-            Button("Log in") {
-                alertHider.start()
+            ForEach((0..<ContentView.sliderCount).reversed(), id: \.self) { idx in
+                HStack {
+                    Text("0")
+                    Slider(value: $sliderValues[idx])
+                    Text("1")
+                }
             }
-            .alert(isPresented: $alertHider.showAlert) {
-                Alert(
-                    title: Text("Hello, \(username). This alert will be closed in \(alertHider.timeToClose) seconds"),
-                    message: nil,
-                    dismissButton: .cancel(Text("OK"), action: { self.alertHider.stop() })
-                )
+
+            Button(action: proceed) {
+                Text("Proceed")
             }
+
+            Spacer()
         }
-        .padding(.horizontal)
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Alert"), message: Text("Score \(score)"), dismissButton: .default(Text("Got it!")))
+        }
+    }
+
+    func proceed() {
+        var difference = 0.0
+
+        for idx in 0..<ContentView.sliderCount {
+            difference += Double(abs(targets[idx] - sliderValues[idx]))
+        }
+
+        self.score = round(100 - 100 * (difference / Double(ContentView.sliderCount)))
+        self.showingAlert.toggle()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ContentView()
-//            ContentView(username: "Amir")
-        }
-        .previewLayout(.fixed(width: 400, height: 400))
-//        .preferredColorScheme(.dark)
-    }
-}
-
-struct LoginTextField: View {
-    var placeholder: String
-    @Binding var text: String
+struct TargetSlider: View {
+    let targetValue: CGFloat
 
     var body: some View {
-        TextField(placeholder, text: $text)
-            .padding()
-            .background(Capsule().stroke())
-            .background(Color.gray.opacity(0.1))
-            .clipShape(Capsule())
+        GeometryReader { geometry in
+            HStack(spacing: 0) {
+                Rectangle()
+                    .fill(Color.gray)
+                    .frame(
+                        width: geometry.size.width * targetValue
+                    )
+                Rectangle()
+                    .fill(Color.yellow)
+                    .frame(
+                        width: geometry.size.width * (1.0 - targetValue)
+                    )
+            }
+        }
+    }
+}
+
+struct ContenView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
